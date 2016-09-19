@@ -1,5 +1,8 @@
 #include "Driver.h"
 
+Driver::Driver(DcMotor (&motors)[2])
+  : motors_(motors)
+{}
 
 void Driver::Forward(int speed) {
   speed_ = speed;

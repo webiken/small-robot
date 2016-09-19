@@ -5,12 +5,10 @@
 
 class Driver {
   DcMotor (&motors_)[2];
- public:
-  //Driver(DcMotor (&motors)[2]);
-  Driver(DcMotor (&motors)[2])
-    : motors_(motors)
-  {}
 
+ public:
+
+  Driver(DcMotor (&motors)[2]);
   void Forward(int speed);
   void Reverse(int speed);
   void TurnRight(void);
@@ -18,6 +16,7 @@ class Driver {
   void Stop(void);
   
  private:
+
   int speed_;
   boolean forward_;
   
