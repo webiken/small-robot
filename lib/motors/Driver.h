@@ -1,17 +1,26 @@
+#ifndef SROBOT_MOTORS_DRIVER_H_
+#define SROBOT_MOTORS_DRIVER_H_
+
 #include "DcMotor.h"
 
 class Driver {
+  DcMotor (&motors_)[2];
  public:
-  Driver(DcMotor& m1, DcMotor& m2);
-  void forward(int speed);
-  void reverse(int speed);
-  void turnRight(void);
-  void turnLeft(void);
-  void stop(void);
+  //Driver(DcMotor (&motors)[2]);
+  Driver(DcMotor (&motors)[2])
+    : motors_(motors)
+  {}
+
+  void Forward(int speed);
+  void Reverse(int speed);
+  void TurnRight(void);
+  void TurnLeft(void);
+  void Stop(void);
+  
  private:
-  int _speed;
-  boolean _m1_forward;
-  boolean _m2_forward;
-  DcMotor _m1;
-  DcMotor _m2;
+  int speed_;
+  boolean forward_;
+  
 };
+
+#endif // SROBOT_MOTORS_DRIVER_H_

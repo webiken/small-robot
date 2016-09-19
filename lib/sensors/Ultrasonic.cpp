@@ -1,27 +1,23 @@
 #include "Ultrasonic.h"
 
 Ultrasonic::Ultrasonic(int pin){
-  _pin = pin;
+  pin_ = pin;
 }
 
 /*Begin the detection and get the pulse back signal*/
 void Ultrasonic::DistanceMeasure(void) {
-  pinMode(_pin, OUTPUT);
-  digitalWrite(_pin, LOW);
+  pinMode(pin_, OUTPUT);
+  digitalWrite(pin_, LOW);
   delayMicroseconds(2);
-  digitalWrite(_pin, HIGH);
+  digitalWrite(pin_, HIGH);
   delayMicroseconds(5);
-  digitalWrite(_pin,LOW);
-  pinMode(_pin,INPUT);
-  duration = pulseIn(_pin,HIGH);
+  digitalWrite(pin_,LOW);
+  pinMode(pin_,INPUT);
+  duration_ = pulseIn(pin_,HIGH);
 }
 
 /*The measured distance from the range 0 to 400 Centimeters*/
-long Ultrasonic::microsecondsToCentimeters(void){
-  return duration/29/2;
+long Ultrasonic::microseconds_to_centimeters(void){
+  return duration_/29/2;
 }
 
-/*The measured distance from the range 0 to 157 Inches*/
-long Ultrasonic::microsecondsToInches(void) {
-  return duration/74/2;
-}

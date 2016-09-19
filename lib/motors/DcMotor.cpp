@@ -2,20 +2,20 @@
 
 DcMotor::DcMotor(void) {}
 
-DcMotor::DcMotor(int speedPin, int ctrlPin1, int ctrlPin2) {
-  _speedPin = speedPin;
-  _ctrlPin1 = ctrlPin1;
-  _ctrlPin2 = ctrlPin2;
+DcMotor::DcMotor(int speed_pin, int ctrl_pin1, int ctrl_pin2) {
+  speed_pin_ = speed_pin;
+  ctrl_pin1_ = ctrl_pin1; 
+  ctrl_pin2_ = ctrl_pin2;
 }
 
-void DcMotor::move(int speed, boolean high) {
-  analogWrite(_speedPin, speed);
-  digitalWrite(_ctrlPin1, high);
-  digitalWrite(_ctrlPin2, !high);
+void DcMotor::Move(int speed, boolean high) const {
+  analogWrite(speed_pin_, speed);
+  digitalWrite(ctrl_pin1_, high);
+  digitalWrite(ctrl_pin2_, !high);
 }
 
-void DcMotor::stop() {
-  analogWrite(_speedPin, 0);
-  digitalWrite(_ctrlPin1, LOW);
-  digitalWrite(_ctrlPin2, LOW);
+void DcMotor::Stop() const {
+  analogWrite(speed_pin_, 0);
+  digitalWrite(ctrl_pin1_, LOW);
+  digitalWrite(ctrl_pin2_, LOW);
 }

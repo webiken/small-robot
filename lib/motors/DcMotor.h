@@ -1,13 +1,18 @@
+#ifndef SROBOT_MOTORS_DCMOTOR_H_
+#define SROBOT_MOTORS_DCMOTOR_H_
+
 #include "Arduino.h"
 
 class DcMotor {
  public:
   DcMotor(void);
-  DcMotor(int speedPin, int ctrlPin1, int ctrlPin2);
-  void move(int speed, boolean high);
-  void stop(void);
+  DcMotor(int speed_pin, int ctrl_pin1, int ctrl_pin2);
+  void Move(int speed, boolean high) const;
+  void Stop(void) const;
  private:
-  int _speedPin;
-  int _ctrlPin1;
-  int _ctrlPin2;
+  int speed_pin_;
+  int ctrl_pin1_;
+  int ctrl_pin2_;
 };
+
+#endif  // SROBOT_MOTORS_DCMOTOR_H_
